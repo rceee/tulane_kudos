@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Kudos" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Kudos" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Trakstar" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Trakstar" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
@@ -14,6 +14,9 @@
     </header>
     <main role="main">
        <%= render 'layouts/messages' %>
+       <% if user_signed_in? %>
+       <p>You have <%= current_user.kudos_count %> Kudos remaining.</p>
+       <% end %>
        <%= yield %>
     </main>
   </body>

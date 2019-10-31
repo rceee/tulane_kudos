@@ -1,2 +1,3 @@
-<td><%= link_to user.name, user %></td>
-<td><%= link_to user.email, user %></td>
+<td><%= user.email  %></td>
+<td><%= link_to "Give Kudos", give_kudos_path(user), class: "btn btn-primary", role: "button"%></td>
+<td><%= user.kudos.count %> Kudos</td>
